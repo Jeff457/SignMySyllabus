@@ -9,19 +9,19 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 
 @WebServlet("/DocuSignServlet")
-public class DocuSignServlet extends HttpServlet 
+public class DocuSignServlet extends HttpServlet
 {
 	private static final long serialVersionUID = 1L;
 	private DocuSign docuSign;
-	
+
 	public DocuSignServlet()
 	{
 		super();
 		docuSign = new DocuSign();
 	}
-	
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		String name = request.getParameter("name");
 		String action = request.getParameter("action");
@@ -37,7 +37,7 @@ public class DocuSignServlet extends HttpServlet
 			}
 		}
 	}
-	
+
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{

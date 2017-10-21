@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+    id 'war'
+    id 'org.akhikhl.gretty' version '1.4.2'
+}
+
+group 'test'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'war'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
+    compile 'com.docusign:docusign-esign-java:2.3.0'
+}
