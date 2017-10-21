@@ -23,7 +23,7 @@ public class DocuSignServlet extends HttpServlet
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		String name = request.getParameter("name");              
+		String name = request.getParameter("name");
 		String action = request.getParameter("action");
 		if (name != null)
 			System.out.println(name + " suck my duck");
