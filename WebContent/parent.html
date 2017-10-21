@@ -19,6 +19,45 @@
 
     <!-- Custom styles for this template -->
     <link href="css/landing-page.css" rel="stylesheet">
+    
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+    $(document).ready(function(){
+    	$(".sign").click(function(e){
+    		var element = e.target;
+    		if (element.id === "btn1")
+    			var name = $("#name1").text();
+    		else
+    			var name = $("#name2").text();
+    		var query = $(".sign").val();
+    		var jsonObject;
+    		var params = { "action" : "sign", "query" : query, "name" : name };
+    		
+    		var saveData = $.ajax({
+    			type: 'POST',
+    			url: "DocuSignServlet",
+    			data: params,
+    			dataType: "text",
+    			success: function(resultData) {
+    				if (resultData){
+    					alert("You clicked me, you son of a bitch");
+    				} else {
+    					
+    				}
+    			}
+    		});
+        });
+    });
+    	
+    	
+    	// Click submits form search.
+/*     	$('#sign').click(function (e) {
+    	    $('<form action="sign" method="POST"><input type="hidden" name="document" value="' + $("#sign").val() + '"/></form>').appendTo('body').submit();
+    	}); */
+    </script>
 
   </head>
 
@@ -65,29 +104,31 @@
             </div>
           </div>
           
-          <div class="row students">
-            <div class="col-md-4 student">
-              Eric Wolfe
-            </div>
-            <div class="col-md-4 student">
-              US Government
-            </div>
-            <div class="col-md-4">
-              <input class="btn btn-default parent-btn" type="submit" value="Sign Syllabus">
-            </div>
-          </div>
-          <div class="row students last-student">
-            <div class="col-md-4 student">
-              Luke Wolfe
-            </div>
-            <div class="col-md-4 student">
-              US Government
-            </div>
-            <div class="col-md-4">
-              <input class="btn btn-default parent-btn" type="submit" value="Sign Syllabus">
-            </div>
-          </div>
-        </div>
+<!--           <form action="DocuSignServlet" method="post">
+ -->	          <div class="row students">
+	            <div class="col-md-4 student">
+	              <span id="name1">Eric Wolfe</span>
+	            </div>
+	            <div class="col-md-4 student">
+	              US Government
+	            </div>
+	            <div class="col-md-4">
+	              <input id="btn1" class="sign btn btn-default parent-btn" type="submit" value="Sign Syllabus">
+	            </div>
+	          </div>
+	          <div class="row students last-student">
+	            <div class="col-md-4 student">
+	              <span id="name2">Luke Wolfe</span>
+	            </div>
+	            <div class="col-md-4 student">
+	              US Government
+	            </div>
+	            <div class="col-md-4">
+	              <input id="btn2" class="sign btn btn-default parent-btn" type="submit" value="Sign Syllabus">
+	            </div>
+	          </div>
+<!--           </form>
+ -->        </div>
       </div>
     </header>
 
@@ -114,10 +155,6 @@
         <p class="copyright text-muted small">Copyright &copy; Sign My Syllabus. All Rights Reserved</p>
       </div>
     </footer>
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   </body>
 
