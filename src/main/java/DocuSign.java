@@ -102,8 +102,8 @@ public class DocuSign
         signHere.setDocumentId("1");
         signHere.setPageNumber("2");
         signHere.setRecipientId("1");
-        signHere.setXPosition("150");
-        signHere.setYPosition("500");
+        signHere.setXPosition("240");
+        signHere.setYPosition("660");
 
         // can have multiple tabs, so need to add to envelope as a single element list
         List<SignHere> signHereTabs = new ArrayList<SignHere>();
@@ -168,7 +168,7 @@ public class DocuSign
         // call the CreateRecipientView API then navigate to the URL to start the signing session
         ViewUrl recipientView;
         try {
-            recipientView = envelopesApi.createRecipientView(accountId, envelopeId.toString(), returnUrl);
+            recipientView = envelopesApi.createRecipientView(accountId, envelopeId, returnUrl);
 
             System.out.println("ViewUrl: " + recipientView);
 
