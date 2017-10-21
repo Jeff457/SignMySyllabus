@@ -30,6 +30,11 @@ a.navbar-brand {
   color: black;
 }
 
+.nav-user {
+  margin-left: 25px;
+  margin-top: 3%;
+}
+
 .intro-header {
   padding-top: 50px;
   padding-bottom: 50px;
@@ -226,7 +231,12 @@ a.navbar-brand {
   margin-left: 20%;
 }
 
-.parent-btn:hover {
+.teacher-btn, .parent-btn {
+  background-color: #27ae60;
+  color: white;
+}
+
+.parent-btn:hover, .teacher-btn:hover {
   border: 1px solid black;
 }
 
@@ -242,7 +252,7 @@ a.navbar-brand {
 }
 .student-name {
   position: absolute;
-  margin-left: -15%;
+  margin-left: -20%;
   margin-top: 1%;
 }
 .class-name {

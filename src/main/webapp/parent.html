@@ -32,8 +32,9 @@
     			var name = $("#name1").text();
     		else
     			var name = $("#name2").text();
+    		$(this).val("Loading...");
+            $(this).prop("disabled",true);
     		var query = $(".sign").val();
-    		var jsonObject;
     		var params = { "action" : "sign", "query" : query, "name" : name };
     		
     		var saveData = $.ajax({
@@ -48,12 +49,6 @@
     		});
         });
     });
-    	
-    	
-    	// Click submits form search.
-/*     	$('#sign').click(function (e) {
-    	    $('<form action="sign" method="POST"><input type="hidden" name="document" value="' + $("#sign").val() + '"/></form>').appendTo('body').submit();
-    	}); */
     </script>
 
   </head>
@@ -70,14 +65,18 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
+              <a class="nav-link" href="about.html">About</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Services</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
+              <a class="nav-link" href="contact.html">Contact</a>
             </li>
+              <li class="nav-item nav-user">
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                  Eric
+              </li>
           </ul>
         </div>
       </div>
@@ -87,7 +86,7 @@
     <header class="parent-header">
       <div class="container">
         <div class="parent-message">
-          <h1>Welcome, Parent</h1>
+          <h1>Welcome, Eric</h1>
           <div class="row header">
             <div class="col-md-3"></div>
             <div class="col-md-2">
@@ -100,22 +99,10 @@
               Action Required
             </div>
           </div>
-          
-<!--           <form action="main.java.DocuSignServlet" method="post">
- -->	          <div class="row students">
-	            <div class="col-md-4 student">
-	              <span id="name1">Eric Wolfe</span>
-	            </div>
-	            <div class="col-md-4 student">
-	              US Government
-	            </div>
-	            <div class="col-md-4">
-	              <input id="btn1" class="sign btn btn-default parent-btn" type="submit" value="Sign Syllabus">
-	            </div>
-	          </div>
+
 	          <div class="row students last-student">
 	            <div class="col-md-4 student">
-	              <span id="name2">Luke Wolfe</span>
+	              <span id="name2">Jeff Stanton</span>
 	            </div>
 	            <div class="col-md-4 student">
 	              US Government
@@ -124,8 +111,7 @@
 	              <input id="btn2" class="sign btn btn-default parent-btn" type="submit" value="Sign Syllabus">
 	            </div>
 	          </div>
-<!--           </form>
- -->        </div>
+        </div>
       </div>
     </header>
 
@@ -134,11 +120,11 @@
       <div class="container">
         <ul class="list-inline">
           <li class="list-inline-item">
-            <a href="#">Home</a>
+            <a href="index.html">Home</a>
           </li>
           <li class="footer-menu-divider list-inline-item">&sdot;</li>
           <li class="list-inline-item">
-            <a href="#about">About</a>
+            <a href="about.html">About</a>
           </li>
           <li class="footer-menu-divider list-inline-item">&sdot;</li>
           <li class="list-inline-item">
@@ -146,7 +132,7 @@
           </li>
           <li class="footer-menu-divider list-inline-item">&sdot;</li>
           <li class="list-inline-item">
-            <a href="#contact">Contact</a>
+            <a href="contact.html">Contact</a>
           </li>
         </ul>
         <p class="copyright text-muted small">Copyright &copy; Sign My Syllabus. All Rights Reserved</p>
