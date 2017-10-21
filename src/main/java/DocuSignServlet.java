@@ -1,3 +1,5 @@
+import org.json.JSONObject;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -32,8 +34,10 @@ public class DocuSignServlet extends HttpServlet
 			if (action.equalsIgnoreCase("sign"))
 			{
 				String signingUrl = docuSign.getSigningUrl(name);
-				RequestDispatcher dispatcher = request.getRequestDispatcher(signingUrl);
-				dispatcher.forward(request, response);
+				System.out.println(signingUrl);
+				JSONObject jobj = new JSONObject();
+				jobj.put("url", signingUrl);
+				response.getWriter().write(jobj.toString());
 			}
 		}
 	}

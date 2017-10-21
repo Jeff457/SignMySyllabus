@@ -42,11 +42,8 @@
     			data: params,
     			dataType: "text",
     			success: function(resultData) {
-    				if (resultData){
-    					alert("You clicked me, you son of a bitch");
-    				} else {
-    					
-    				}
+    			    var json = JSON.parse(resultData);
+    				window.location = json.url;
     			}
     		});
         });
