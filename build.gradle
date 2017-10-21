@@ -17,7 +17,10 @@ repositories {
 }
 
 dependencies {
-
     providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
     compile 'com.docusign:docusign-esign-java:2.3.0'
+}
+
+gretty {
+    contextPath = '/'
 }
