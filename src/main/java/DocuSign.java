@@ -51,7 +51,7 @@ public class DocuSign
     public String createEnvelope(String name, String email, String clientUserID)
     {
         // specify a document we want signed
-        String SignTest1File = "[PATH/TO/DOCUMENT/TEST.PDF]";
+        String SignTest1File = "/GovSyl.pdf";
 
         // create a byte array that will hold our document bytes
         byte[] fileBytes = null;
@@ -102,8 +102,8 @@ public class DocuSign
         signHere.setDocumentId("1");
         signHere.setPageNumber("2");
         signHere.setRecipientId("1");
-        signHere.setXPosition("100");
-        signHere.setYPosition("150");
+        signHere.setXPosition("150");
+        signHere.setYPosition("500");
 
         // can have multiple tabs, so need to add to envelope as a single element list
         List<SignHere> signHereTabs = new ArrayList<SignHere>();
