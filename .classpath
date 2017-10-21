@@ -13,9 +13,9 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="/Users/jeff/Downloads/docusign-esign-java-2.3.0.jar"/>
 	<classpathentry kind="lib" path="/Users/jeff/Downloads/bcprov-jdk15on-1.55.jar"/>
 	<classpathentry kind="lib" path="/Users/jeff/Downloads/commons-codec-1.10.jar"/>
-	<classpathentry kind="lib" path="/Users/jeff/Downloads/docusign-esign-java-2.2.1.jar"/>
 	<classpathentry kind="lib" path="/Users/jeff/Downloads/hamcrest-core-1.3.jar"/>
 	<classpathentry kind="lib" path="/Users/jeff/Downloads/jackson-annotations-2.7.0.jar"/>
 	<classpathentry kind="lib" path="/Users/jeff/Downloads/jackson-core-2.7.0.jar"/>
