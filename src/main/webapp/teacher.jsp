@@ -1,4 +1,22 @@
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="java.util.HashSet"%>
+
+<%
+    HashSet<String> signedSet = (HashSet<String>)request.getSession().getAttribute("signedSet");
+    System.out.println((signedSet == null) ? "It's null" : "It's not null");
+    if (signedSet == null) {
+        signedSet = new HashSet<>();
+        request.getSession().setAttribute("signedSet", signedSet);
+    }
+    else
+        for (String item : signedSet)
+            System.out.println(item);
+
+    pageContext.setAttribute("signedSet", signedSet);
+    pageContext.setAttribute("referer", request.getHeader("referer"));
+%>
+
 <html lang="en">
 
 <head>
@@ -25,7 +43,7 @@
 <body>
 
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg fixed-top">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
     <div class="container">
         <a class="navbar-brand" href="index.html">Sign My Syllabus</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,30 +70,38 @@
 </nav>
 
 <!-- Header -->
-<header class="intro-header">
+<header class="parent-header">
     <div class="container">
-        <div class="intro-message">
-            <h1>Get Signing</h1>
-            <hr class="intro-divider">
-            <ul class="list-inline intro-social-buttons">
-                <li class="list-inline-item">
-                    <a href="student.html" class="btn btn-secondary btn-lg landing-btn">
-                        <span class="network-name">Student</span>
-                    </a>
-                </li>
-                <li class="list-inline-item">
-                    <a href="parent.html" class="btn btn-secondary btn-lg landing-btn">
-                        <span class="network-name">Parent</span>
-                    </a>
-                </li>
-                <li class="list-inline-item">
-                    <a href="teacher.jsp" class="btn btn-secondary btn-lg landing-btn">
-                        <span class="network-name">Teacher</span>
-                    </a>
-                </li>
-            </ul>
-            <div class="alert alert-danger" role="alert">YOU MUST SIGN THE SYLLABUS! I DISMISS YOU, YOU DO NOT DISMISS THE SYLLABUS!!</div>
+        <div class="parent-message">
+            <h1>US Government Students</h1>
+            <div class="row header">
+
+                <div class="col-md-6">
+                    Student
+                </div>
+                <div class="col-md-2">
+                    Parent
+                </div>
+            </div>
+
         </div>
+
+        <div class="row students-teacher-page last-student">
+            <div class="col-md-2"></div>
+            <div class="col-md-5 student-teacher-page student-teacher">
+                <span class="student-name">Jeff Stanton</span>
+                <i class="<% out.print(signedSet.contains("Jeff Stanton") ? "fa fa-check-square-o fa-2x signed-boxed": "fa fa-square-o fa-2x signed-boxed");%>" aria-hidden="true"></i>
+                <input class="btn btn-default teacher-btn" type="submit" <c:if test="${signedSet.contains(\"Jeff Stanton\")}">disabled</c:if> value="Send Reminder">
+            </div>
+
+            <div class="col-md-5 student-teacher-page student-teacher">
+                <span class="parent-name">Eric Wolfe</span>
+                <i class="<% out.print(signedSet.contains("Eric Wolfe") ? "fa fa-check-square-o fa-2x signed-boxed": "fa fa-square-o fa-2x signed-boxed");%>" aria-hidden="true"></i>
+                <input class="btn btn-default teacher-btn" type="submit" <c:if test="${signedSet.contains(\"Eric Wolfe\")}">disabled</c:if> value="Send Reminder">
+            </div>
+
+        </div>
+    </div>
 </header>
 
 <!-- Footer -->
@@ -109,3 +135,5 @@
 </body>
 
 </html>
+
+

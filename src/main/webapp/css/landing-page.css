@@ -250,7 +250,7 @@ a.navbar-brand {
   margin-right: -50px;
   color: red;
 }
-.student-name {
+.student-name, .parent-name {
   position: absolute;
   margin-left: -20%;
   margin-top: 1%;
@@ -259,6 +259,10 @@ a.navbar-brand {
   position: absolute;
   margin-top: 1%;
   margin-left: -25%;
+}
+
+.fa-check-square-o {
+  color: green;
 }
 
 /* Student page */

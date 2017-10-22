@@ -20,15 +20,16 @@ public class DocumentResponseServlet extends HttpServlet
         String name = request.getParameter("name").replace("+", " ");
         String eventResponse = request.getParameter("event");
 
-        Object obj = request.getAttribute("signedSet");
+        Object obj = request.getSession().getAttribute("signedSet");
         HashSet<String> set;
         if(obj == null) {
             set = new HashSet<>();
-            request.setAttribute("signedSet", set);
+            request.getSession().setAttribute("signedSet", set);
         }
         else set = (HashSet<String>)obj;
 
         set.add(name);
+        System.out.println("Added " + name);
 
         if(eventResponse.equalsIgnoreCase("cancel")
                 || eventResponse.equalsIgnoreCase("decline")
