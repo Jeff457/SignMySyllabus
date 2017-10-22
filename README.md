@@ -10,7 +10,7 @@ We wanted to fix these problems by giving schools an easy, paper-free way to man
 
 Sign My Syllabus gives parents, teachers, and students an easy, paper free way to manage a class syllabus.
 
-From a simple website, teachers can upload a syllabus for their course and share it with their students and teachers. Teachers can then send a reminder (through email or text message) to students and parents letting them know that they need to sign the course syllabus.
+From a simple website, teachers can upload a syllabus for their course and share it with their students and parents. Teachers are able to view all of the students and parents who have signed the syllabus for each class. For those who haven't signed, teachers can send a reminder (through email or text message) to students and parents letting them know that they need to sign the course syllabus.
 
 Students can use the website to sign the syllabus for each of their courses. They can also send a reminder (through email or text) to their parents letting them know that they need to sign the syllabus.
 
