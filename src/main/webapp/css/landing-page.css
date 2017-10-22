@@ -267,6 +267,24 @@ a.navbar-brand {
   color: #c0392b;
 }
 
+.student-class-header {
+  margin-left: 15px;
+}
+
+.student-action-header {
+  margin-left: -45px;
+}
+
+/* Parent page */
+.parent-name-header {
+  margin-left: -15px;
+}
+
+.parent-class-header {
+  margin-left: -20px;
+  margin-right: 50px;
+}
+
 /* About page */
 .about {
   margin-bottom: 12%;
