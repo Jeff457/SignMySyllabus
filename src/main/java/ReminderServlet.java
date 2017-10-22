@@ -38,6 +38,7 @@ public class ReminderServlet extends HttpServlet
         String remindeeName = request.getParameter("remindee").replace("+"," ");
         String reminderName = request.getParameter("reminder").replace("+", " ");
         String className = request.getParameter("class");
+        String parentOrStudent = request.getParameter("parentOrStudent");
 
         if(!phoneNumbers.containsKey(remindeeName)) {
             response.setStatus(400);
@@ -45,7 +46,11 @@ public class ReminderServlet extends HttpServlet
         else {
             String phoneNumber = phoneNumbers.get(remindeeName);
 
-            String url = DocuSign.INSTANCE.getParentSigningUrl(remindeeName);
+            String url = null;
+            if("parent".equalsIgnoreCase(parentOrStudent))
+                url = DocuSign.INSTANCE.getParentSigningUrl(remindeeName);
+            else
+                url = DocuSign.INSTANCE.getChildSigningUrl(remindeeName);
 
             String message = "Signature Requested: "+url;
 

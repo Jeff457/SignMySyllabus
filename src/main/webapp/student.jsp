@@ -48,7 +48,7 @@
                 if($(this).val() === 'Send Reminder') {
                     $(this).val("Reminding...");
                     $(this).prop("disabled", true);
-                    var params = {"reminder": "Jeff Stanton", "remindee": "Eric Wolfe", "class": "US Government"};
+                    var params = {"reminder": "Jeff Stanton", "remindee": "Eric Wolfe", "class": "US Government", "parentOrStudent": "parent"};
 
                     var saveData = $.ajax({
                         type: 'POST',
