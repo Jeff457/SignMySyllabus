@@ -27,13 +27,19 @@ public class DocuSignServlet extends HttpServlet
 	{
 		String name = request.getParameter("name");
 		String action = request.getParameter("action");
-		if (name != null)
-			System.out.println(name + " suck my duck");
+
 		if (action != null && name != null)
 		{
-			if (action.equalsIgnoreCase("sign"))
+			if (action.equalsIgnoreCase("signParent"))
 			{
-				String signingUrl = docuSign.getSigningUrl(name);
+				String signingUrl = docuSign.getParentSigningUrl(name);
+				System.out.println(signingUrl);
+				JSONObject jobj = new JSONObject();
+				jobj.put("url", signingUrl);
+				response.getWriter().write(jobj.toString());
+			}
+			else if(action.equalsIgnoreCase("signChild")) {
+				String signingUrl = docuSign.getChildSigningUrl(name);
 				System.out.println(signingUrl);
 				JSONObject jobj = new JSONObject();
 				jobj.put("url", signingUrl);
