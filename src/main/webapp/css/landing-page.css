@@ -293,6 +293,9 @@ a.navbar-brand {
 .about {
   margin-bottom: 12%;
 }
+.set-gray {
+  background-color: gray;
+}
 
 footer {
   padding: 50px 0;

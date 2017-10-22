@@ -1,5 +1,21 @@
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="java.util.HashSet"%>
 
+<%
+  HashSet<String> signedSet = (HashSet<String>)request.getSession().getAttribute("signedSet");
+  System.out.println((signedSet == null) ? "It's null" : "It's not null");
+  if (signedSet == null) {
+    signedSet = new HashSet<>();
+    request.getSession().setAttribute("signedSet", signedSet);
+  }
+  else
+    for (String item : signedSet)
+      System.out.println(item);
+
+  pageContext.setAttribute("signedSet", signedSet);
+  pageContext.setAttribute("referer", request.getHeader("referer"));
+%>
 <html lang="en">
 
   <head>
@@ -100,7 +116,7 @@
               US Government
             </div>
             <div class="col-md-4">
-              <input id="button" class="btn btn-default parent-btn" type="submit" value="Sign Syllabus">
+              <input id="button" class="btn btn-default parent-btn <% out.print(signedSet.contains("Jeff Stanton") && signedSet.contains("Eric Wolfe") ? "set-gray" : "");%>" type="submit" <c:if test="${signedSet.contains(\"Eric Wolfe\") and signedSet.contains('Jeff Stanton')}">disabled</c:if> value="<% out.print(signedSet.contains("Jeff Stanton") ? "Send Reminder": "Sign Syllabus");%>">
             </div>
           </div>
           
