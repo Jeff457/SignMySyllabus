@@ -13,12 +13,14 @@ import com.docusign.esign.model.*;
 
 public class DocuSign
 {
+    public static DocuSign INSTANCE = new DocuSign();
+
     private String BaseUrl = "https://demo.docusign.net/restapi";
     private ApiClient apiClient;
     private List<LoginAccount> loginAccounts;
     private Random random = new Random();
 
-    DocuSign()
+    private DocuSign()
     {
         apiClient = new ApiClient(BaseUrl);
         apiClient.addDefaultHeader("X-DocuSign-Authentication", AuthorizationHeader.INSTANCE.toString());

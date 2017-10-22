@@ -45,21 +45,37 @@
         $(document).ready(function(){
             $("#button").click(function(e){
                 var element = e.target;
-                $(this).val("Loading...");
-                $(this).prop("disabled",true);
-                var query = $("#button").val();
-                var params = { "action" : "signChild", "query" : query, "name" : "Jeff Stanton" };
+                if($(this).val() === 'Send Reminder') {
+                    $(this).val("Reminding...");
+                    $(this).prop("disabled", true);
+                    var params = {"reminder": "Jeff Stanton", "remindee": "Eric Wolfe", "class": "US Government"};
 
-                var saveData = $.ajax({
-                    type: 'POST',
-                    url: "DocuSignServlet",
-                    data: params,
-                    dataType: "text",
-                    success: function(resultData) {
-                        var json = JSON.parse(resultData);
-                        window.location = json.url;
-                    }
-                });
+                    var saveData = $.ajax({
+                        type: 'POST',
+                        url: "remind",
+                        data: params,
+                        dataType: "text"
+                    });
+
+                    $(this).val("Reminded");
+                }
+                else {
+                    $(this).val("Loading...");
+                    $(this).prop("disabled", true);
+                    var query = $("#button").val();
+                    var params = {"action": "signChild", "query": query, "name": "Jeff Stanton"};
+
+                    var saveData = $.ajax({
+                        type: 'POST',
+                        url: "DocuSignServlet",
+                        data: params,
+                        dataType: "text",
+                        success: function (resultData) {
+                            var json = JSON.parse(resultData);
+                            window.location = json.url;
+                        }
+                    });
+                }
             });
         });
     </script>

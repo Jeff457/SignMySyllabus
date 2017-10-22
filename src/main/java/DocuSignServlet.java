@@ -19,7 +19,7 @@ public class DocuSignServlet extends HttpServlet
 	public DocuSignServlet()
 	{
 		super();
-		docuSign = new DocuSign();
+		docuSign = DocuSign.INSTANCE;
 	}
 
 

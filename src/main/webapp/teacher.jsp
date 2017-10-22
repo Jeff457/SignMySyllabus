@@ -38,6 +38,29 @@
     <!-- Custom styles for this template -->
     <link href="css/landing-page.css" rel="stylesheet">
 
+    <script>
+        $(document).ready(function(){
+            $("#button").click(function(e){
+                var element = e.target;
+                $(this).val("Reminding...");
+                $(this).prop("disabled",true);
+                var query = $("#button").val();
+                var params = { "action" : "signChild", "query" : query, "name" : "Jeff Stanton" };
+
+                var saveData = $.ajax({
+                    type: 'POST',
+                    url: "DocuSignServlet",
+                    data: params,
+                    dataType: "text",
+                    success: function(resultData) {
+                        var json = JSON.parse(resultData);
+                        window.location = json.url;
+                    }
+                });
+            });
+        });
+    </script>
+
 </head>
 
 <body>
