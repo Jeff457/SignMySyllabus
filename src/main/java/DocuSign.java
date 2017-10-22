@@ -110,9 +110,9 @@ public class DocuSign
         dateSigned.setPageNumber("2");
         dateSigned.setRecipientId("1");
         dateSigned.setXPosition("440");
-        dateSigned.setYPosition("675");
+        dateSigned.setYPosition("670");
 
-        // can have multiple tabs, so need to add to envelope as a single element list
+        // can have multiple tabs, so need to add  to envelope as a single element list
         List<SignHere> signHereTabs = new ArrayList<>();
         List<DateSigned> dateTabs = new ArrayList<>();
         signHereTabs.add(signHere);
@@ -282,7 +282,7 @@ public class DocuSign
 
         // set the url where you want the recipient to go once they are done signing
         RecipientViewRequest returnUrl = new RecipientViewRequest();
-        returnUrl.setReturnUrl("localhost:8080/response?user="+id);
+        returnUrl.setReturnUrl("http://localhost:8080/response?user="+id);
         returnUrl.setAuthenticationMethod("email");
 
         // recipient information must match embedded recipient info we provided in step #2

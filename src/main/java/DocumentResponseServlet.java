@@ -12,8 +12,10 @@ public class DocumentResponseServlet extends HttpServlet
 {
     private static final long serialVersionUID = 1L;
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
+        System.out.println("Response endpoint called");
+
         String id = request.getParameter("id");
         String eventResponse = request.getParameter("event");
 
@@ -36,9 +38,8 @@ public class DocumentResponseServlet extends HttpServlet
         }
     }
 
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        response.setStatus(200);
+
     }
 }
