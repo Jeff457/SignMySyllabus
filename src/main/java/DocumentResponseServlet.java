@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.HashSet;
 
 @WebServlet("/response")
 public class DocumentResponseServlet extends HttpServlet
@@ -16,10 +17,18 @@ public class DocumentResponseServlet extends HttpServlet
     {
         System.out.println("Response endpoint called");
 
-        String id = request.getParameter("id");
+        String name = request.getParameter("name").replace("+", " ");
         String eventResponse = request.getParameter("event");
 
-        //TODO---Store it somewhere if they successfully signed the document
+        Object obj = request.getAttribute("signedSet");
+        HashSet<String> set;
+        if(obj == null) {
+            set = new HashSet<>();
+            request.setAttribute("signedSet", set);
+        }
+        else set = (HashSet<String>)obj;
+
+        set.add(name);
 
         if(eventResponse.equalsIgnoreCase("cancel")
                 || eventResponse.equalsIgnoreCase("decline")

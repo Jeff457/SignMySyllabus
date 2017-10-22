@@ -282,7 +282,7 @@ public class DocuSign
 
         // set the url where you want the recipient to go once they are done signing
         RecipientViewRequest returnUrl = new RecipientViewRequest();
-        returnUrl.setReturnUrl("http://localhost:8080/response?user="+id);
+        returnUrl.setReturnUrl("http://localhost:8080/response?name="+(name).replace(" ","+"));
         returnUrl.setAuthenticationMethod("email");
 
         // recipient information must match embedded recipient info we provided in step #2
