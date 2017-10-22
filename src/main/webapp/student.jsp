@@ -54,10 +54,11 @@
                         type: 'POST',
                         url: "remind",
                         data: params,
-                        dataType: "text"
+                        dataType: "text",
+                        success: function(response) {
+                            $(element).val("Reminded");
+                        }
                     });
-
-                    $(this).val("Reminded");
                 }
                 else {
                     $(this).val("Loading...");

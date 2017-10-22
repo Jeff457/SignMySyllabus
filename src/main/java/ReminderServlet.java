@@ -1,5 +1,3 @@
-
-
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;
 import org.json.JSONObject;
@@ -59,7 +57,9 @@ public class ReminderServlet extends HttpServlet
 
             System.out.print("Sent a message to the number "+phoneNumber+". SID = "+messageObj.getSid());
             response.setStatus(200);
-            response.getWriter().write("Success");
+            JSONObject jobj = new JSONObject();
+            jobj.put("data", "success");
+            response.getWriter().write(jobj.toString());
         }
     }
 

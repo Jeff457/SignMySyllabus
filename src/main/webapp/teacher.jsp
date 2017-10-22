@@ -38,23 +38,29 @@
     <!-- Custom styles for this template -->
     <link href="css/landing-page.css" rel="stylesheet">
 
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
     <script>
         $(document).ready(function(){
-            $("#button").click(function(e){
-                var element = e.target;
+            $(".sign").click(function(e){
                 $(this).val("Reminding...");
-                $(this).prop("disabled",true);
-                var query = $("#button").val();
-                var params = { "action" : "signChild", "query" : query, "name" : "Jeff Stanton" };
+                $(this).prop("disabled", true);
+                var element = e.target;
+                // who still needs to sign the document
+                var remindee = (element.id === "btn1") ? "Jeff Stanton" : "Eric Wolfe";
+                // if the remindee is a parent or a student
+                var parentOrStudent = (remindee === "Jeff Stanton") ? "student" : "parent";
+                var params = {"reminder": "Eric Wolfe", "remindee": remindee, "class": "US Government", "parentOrStudent": parentOrStudent};
 
                 var saveData = $.ajax({
                     type: 'POST',
-                    url: "DocuSignServlet",
+                    url: "remind",
                     data: params,
                     dataType: "text",
-                    success: function(resultData) {
-                        var json = JSON.parse(resultData);
-                        window.location = json.url;
+                    success: function(response) {
+                        $(element).val("Reminded");
                     }
                 });
             });
@@ -114,13 +120,13 @@
             <div class="col-md-5 student-teacher-page student-teacher">
                 <span class="student-name">Jeff Stanton</span>
                 <i class="<% out.print(signedSet.contains("Jeff Stanton") ? "fa fa-check-square-o fa-2x signed-boxed": "fa fa-square-o fa-2x signed-boxed");%>" aria-hidden="true"></i>
-                <input class="btn btn-default teacher-btn" type="submit" <c:if test="${signedSet.contains(\"Jeff Stanton\")}">disabled</c:if> value="Send Reminder">
+                <input id="btn1" class="btn btn-default teacher-btn sign" type="submit" <c:if test="${signedSet.contains(\"Jeff Stanton\")}">disabled</c:if> value="Send Reminder">
             </div>
 
             <div class="col-md-5 student-teacher-page student-teacher">
                 <span class="parent-name">Eric Wolfe</span>
                 <i class="<% out.print(signedSet.contains("Eric Wolfe") ? "fa fa-check-square-o fa-2x signed-boxed": "fa fa-square-o fa-2x signed-boxed");%>" aria-hidden="true"></i>
-                <input class="btn btn-default teacher-btn" type="submit" <c:if test="${signedSet.contains(\"Eric Wolfe\")}">disabled</c:if> value="Send Reminder">
+                <input id="btn2" class="btn btn-default teacher-btn sign" type="submit" <c:if test="${signedSet.contains(\"Eric Wolfe\")}">disabled</c:if> value="Send Reminder">
             </div>
 
         </div>
@@ -150,10 +156,6 @@
         <p class="copyright text-muted small">Copyright &copy; Sign My Syllabus. All Rights Reserved</p>
     </div>
 </footer>
-
-<!-- Bootstrap core JavaScript -->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
