@@ -115,7 +115,7 @@
     <header class="parent-header">
       <div class="container">
         <div class="parent-message">
-          <h1>Welcome, Jeff</h1>
+          <h1 class="class-name-header">Welcome, Jeff</h1>
           <div class="row header">
             <div class="col-md-3"></div>
             <div class="col-md-3 student-class-header">
@@ -127,8 +127,7 @@
           </div>
           
           <div class="row students last-student">
-            <div class="col-md-2"></div>
-            <i class="fa fa-exclamation fa-lg" aria-hidden="true"></i>
+            <div class="col-md-2"><i class="fa fa-university fa-2x" aria-hidden="true"></i></div>
             <div class="col-md-4 student">
               US Government
             </div>

@@ -176,6 +176,10 @@ a.navbar-brand {
 /* Parent Page */
 .parent-header {
   text-align: center;
+  background: url(../img/other-bg.jpg) no-repeat center center;
+  background-size: cover;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 .parent-message {
@@ -193,6 +197,7 @@ a.navbar-brand {
   margin: auto;
   margin-top: 2%;
   height: 100px;
+  background-color: white;
 }
 
 .student-teacher-page {
@@ -242,9 +247,15 @@ a.navbar-brand {
 
 .last-student {
   margin-bottom: 5%;
+  background-color: white;
 }
 
 /* Teacher page */
+
+.class-name-header {
+  color: white;
+}
+
 .signed-boxed {
   margin-left: 30px;
   margin-right: -50px;
@@ -265,10 +276,19 @@ a.navbar-brand {
   color: green;
 }
 
+.header {
+  color: white;
+}
+
 /* Student page */
 .fa-exclamation {
   margin-top: 20px;
   color: #c0392b;
+}
+
+.fa-university {
+  margin-top: 15%;
+  margin-left: 80%;
 }
 
 .student-class-header {
@@ -287,6 +307,17 @@ a.navbar-brand {
 .parent-class-header {
   margin-left: -20px;
   margin-right: 50px;
+}
+
+.fa-graduation-cap {
+  margin-top: 23%;
+  margin-left: 70%;
+}
+
+.fa-male {
+  margin-top: 3%;
+  margin-left: -3%;
+  margin-right: 2%;
 }
 
 /* About page */
@@ -313,4 +344,18 @@ footer a:hover {
 
 p.copyright {
   margin: 15px 0 0;
+}
+
+.university-parent {
+  margin-left: -15px;
+  margin-right: -15px;
+  margin-top: 10px;
+  padding: 0;
+}
+
+.grad-parent  {
+  margin-left: -5px;
+  margin-right: -35px;
+  margin-top: 12px;
+  padding: 0;
 }

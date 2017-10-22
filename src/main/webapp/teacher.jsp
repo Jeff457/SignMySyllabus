@@ -102,7 +102,7 @@
 <header class="parent-header">
     <div class="container">
         <div class="parent-message">
-            <h1>US Government Students</h1>
+            <h1 class="class-name-header">US Government Students</h1>
             <div class="row header">
 
                 <div class="col-md-6">
@@ -116,17 +116,18 @@
         </div>
 
         <div class="row students-teacher-page last-student">
-            <div class="col-md-2"></div>
+            <div class="col-md-2"><i class="fa fa-graduation-cap fa-2x" aria-hidden="true"></i></div>
             <div class="col-md-5 student-teacher-page student-teacher">
                 <span class="student-name">Jeff Stanton</span>
                 <i class="<% out.print(signedSet.contains("Jeff Stanton") ? "fa fa-check-square-o fa-2x signed-boxed": "fa fa-square-o fa-2x signed-boxed");%>" aria-hidden="true"></i>
-                <input id="btn1" class="btn btn-default teacher-btn sign" type="submit" <c:if test="${signedSet.contains(\"Jeff Stanton\")}">disabled</c:if> value="Send Reminder">
+                <input id="btn1" class="btn btn-default teacher-btn sign <% out.print(signedSet.contains("Jeff Stanton") ? "set-gray" : "");%>" type="submit" <c:if test="${signedSet.contains(\"Jeff Stanton\")}">disabled</c:if> value="Send Reminder">
             </div>
 
+            <i class="fa fa-male fa-2x" aria-hidden="true"></i>
             <div class="col-md-5 student-teacher-page student-teacher">
                 <span class="parent-name">Eric Wolfe</span>
                 <i class="<% out.print(signedSet.contains("Eric Wolfe") ? "fa fa-check-square-o fa-2x signed-boxed": "fa fa-square-o fa-2x signed-boxed");%>" aria-hidden="true"></i>
-                <input id="btn2" class="btn btn-default teacher-btn sign" type="submit" <c:if test="${signedSet.contains(\"Eric Wolfe\")}">disabled</c:if> value="Send Reminder">
+                <input id="btn2" class="btn btn-default teacher-btn sign <% out.print(signedSet.contains("Eric Wolfe") ? "set-gray" : "");%>" type="submit" <c:if test="${signedSet.contains(\"Eric Wolfe\")}">disabled</c:if> value="Send Reminder">
             </div>
 
         </div>

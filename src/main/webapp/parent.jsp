@@ -103,7 +103,7 @@
     <header class="parent-header">
       <div class="container">
         <div class="parent-message">
-          <h1>Welcome, Eric</h1>
+          <h1 class="class-name-header">Welcome, Eric</h1>
           <div class="row header">
             <div class="col-md-3"></div>
             <div class="col-md-2 parent-name-header">
@@ -118,13 +118,15 @@
           </div>
 
 	          <div class="row students last-student">
+                <i class="fa fa-graduation-cap grad-parent fa-2x" aria-hidden="true"></i>
 	            <div class="col-md-4 student">
 	              <span id="name2">Jeff Stanton</span>
 	            </div>
+                <i class="fa fa-university fa-2x university-parent" aria-hidden="true"></i>
 	            <div class="col-md-4 student">
 	              US Government
 	            </div>
-	            <div class="col-md-4">
+	            <div class="col-md-3">
 	              <input id="btn2" class="sign btn btn-default parent-btn <% out.print(signedSet.contains("Eric Wolfe") ? "set-gray" : "");%>" type="submit" <c:if test="${signedSet.contains(\"Eric Wolfe\")}">disabled</c:if> value="Sign Syllabus">
 	            </div>
 	          </div>
