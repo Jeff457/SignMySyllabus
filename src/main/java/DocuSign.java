@@ -109,8 +109,8 @@ public class DocuSign
         dateSigned.setDocumentId("1");
         dateSigned.setPageNumber("2");
         dateSigned.setRecipientId("1");
-        dateSigned.setXPosition("400");
-        dateSigned.setYPosition("630");
+        dateSigned.setXPosition("440");
+        dateSigned.setYPosition("675");
 
         // can have multiple tabs, so need to add to envelope as a single element list
         List<SignHere> signHereTabs = new ArrayList<>();
@@ -213,8 +213,8 @@ public class DocuSign
         dateSigned.setDocumentId("1");
         dateSigned.setPageNumber("2");
         dateSigned.setRecipientId("1");
-        dateSigned.setXPosition("400");
-        dateSigned.setYPosition("660");
+        dateSigned.setXPosition("440");
+        dateSigned.setYPosition("695");
 
         // can have multiple tabs, so need to add to envelope as a single element list
         List<SignHere> signHereTabs = new ArrayList<>();

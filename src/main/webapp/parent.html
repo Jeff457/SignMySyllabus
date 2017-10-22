@@ -35,7 +35,7 @@
     		$(this).val("Loading...");
             $(this).prop("disabled",true);
     		var query = $(".sign").val();
-    		var params = { "action" : "sign", "query" : query, "name" : name };
+    		var params = { "action" : "signParent", "query" : query, "name" : "Eric Wolfe" };
     		
     		var saveData = $.ajax({
     			type: 'POST',
