@@ -21,6 +21,32 @@
     <!-- Custom styles for this template -->
     <link href="css/landing-page.css" rel="stylesheet">
 
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $("#button").click(function(e){
+                var element = e.target;
+                $(this).val("Loading...");
+                $(this).prop("disabled",true);
+                var query = $("#button").val();
+                var params = { "action" : "signChild", "query" : query, "name" : "Jeff Stanton" };
+
+                var saveData = $.ajax({
+                    type: 'POST',
+                    url: "DocuSignServlet",
+                    data: params,
+                    dataType: "text",
+                    success: function(resultData) {
+                        var json = JSON.parse(resultData);
+                        window.location = json.url;
+                    }
+                });
+            });
+        });
+    </script>
   </head>
 
   <body>
@@ -74,7 +100,7 @@
               US Government
             </div>
             <div class="col-md-4">
-              <input class="btn btn-default parent-btn" type="submit" value="Sign Syllabus">
+              <input id="button" class="btn btn-default parent-btn" type="submit" value="Sign Syllabus">
             </div>
           </div>
           
@@ -105,10 +131,6 @@
         <p class="copyright text-muted small">Copyright &copy; Sign My Syllabus. All Rights Reserved</p>
       </div>
     </footer>
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   </body>
 
